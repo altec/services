@@ -4,8 +4,8 @@ services:
     image: phpmyadmin/phpmyadmin
     container_name: service_phpmyadmin
     environment:
-      PMA_HOST: 192.168.1.8
-      PMA_PORT: 33001
+      PMA_HOST: ${MYSQL_HOST}
+      PMA_PORT: ${MYSQL_PORT}
     restart: always
     ports:
       - "${PHPMYADMIN_PORT}:80"
