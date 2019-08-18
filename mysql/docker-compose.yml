@@ -1,0 +1,27 @@
+version: '3'
+services:
+  service_mysql:
+    image: mysql:8.0
+    container_name: service_mysql_8.0
+    command: ["--default-authentication-plugin=mysql_native_password"]
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - prototype-data:/var/lib/mysql
+    ports:
+      - "${MYSQL_PORT}:3306"
+    networks:
+      prototype-network:
+        ipv4_address: 172.20.128.1
+volumes:
+  service-mysql-data:
+networks:
+  service-mysql-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
