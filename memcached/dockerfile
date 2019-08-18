@@ -1,3 +1,1 @@
-FROM memcached:1.5-alpine AS service_memcached
-
-CMD CMD ["memcached -m 64"]
+FROM memcached:1.5-alpine
