@@ -7,15 +7,12 @@ services:
     restart: on-failure
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
-      - prototype-data:/var/lib/mysql
+      - service-mysql-data:/var/lib/mysql
     ports:
       - "${MYSQL_PORT}:3306"
     networks:
-      prototype-network:
+      service-mysql-network:
         ipv4_address: 172.20.128.1
 volumes:
   service-mysql-data:
