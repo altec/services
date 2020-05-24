@@ -18,4 +18,4 @@ volumes:
   service-mysql-data:
 networks:
   service:
-    driver: overlay 
+    driver: bridge
