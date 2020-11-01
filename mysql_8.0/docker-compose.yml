@@ -1,0 +1,23 @@
+version: '3'
+services:
+  service_mysql_8.0:
+    image: mysql:8.0
+    container_name: service_mysql_8.0
+    command: ["--default-authentication-plugin=mysql_native_password"]
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - service-mysql-data:/var/lib/mysql
+      - ./conf:/etc/mysql/conf.d
+    ports:
+      - "${MYSQL_PORT}:3080"
+    networks:
+      - my-net
+volumes:
+  service-mysql-data:
+
+networks:
+  my-net:
+    external:
+      name: 'my-network'
