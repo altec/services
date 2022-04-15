@@ -1,7 +1,6 @@
-version: '3'
 services:
   service_mysql_5.7:
-    image: mysql:5.7
+    image: mysql:5.7.33
     container_name: service_mysql_5.7
     command: ["--default-authentication-plugin=mysql_native_password"]
     restart: always
@@ -12,12 +11,5 @@ services:
       - ./conf:/etc/mysql/conf.d
     ports:
       - "${MYSQL_PORT}:3057"
-    networks:
-      - my-net
 volumes:
   service-mysql-data:
-
-networks:
-  my-net:
-    external:
-      name: 'my-network'
