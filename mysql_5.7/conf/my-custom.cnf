@@ -123,3 +123,5 @@ slow_query_log                  = 0     # Disabled for production
 slow_query_log_file             = /var/lib/mysql/mysql_slow.log
 
 port = 3057
+
+default-authentication-plugin=mysql_native_password
