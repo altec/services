@@ -8,6 +8,7 @@ services:
     volumes:
       - service-mysql-data:/var/lib/mysql
       - ./conf:/etc/mysql/conf.d
+      - ./init/:/docker-entrypoint-initdb.d/
     ports:
       - "${MYSQL_PORT}:3057"
 volumes:

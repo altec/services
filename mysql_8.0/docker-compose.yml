@@ -13,3 +13,7 @@ services:
       - "${MYSQL_PORT}:3080"
 volumes:
   service-mysql-data:
+networks:
+  default:
+    name: services_network
+    external: true

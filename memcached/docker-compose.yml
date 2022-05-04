@@ -7,3 +7,7 @@ services:
     ports:
       - "${MEMCACHED_PORT}:11211"
     restart: always
+networks:
+  default:
+    name: services_network
+    external: true
