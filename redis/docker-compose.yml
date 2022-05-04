@@ -1,0 +1,13 @@
+services:
+  service_redis:
+    image: redis:7.0-bullseye
+    restart: always
+    container_name: service_redis_7.0_bullseye
+    ports:
+      - "${REDIS_PORT}:6379"
+volumes:
+  service-redis-data:
+networks:
+  default:
+    driver: bridge
+    name: redisnetwork
