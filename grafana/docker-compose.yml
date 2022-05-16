@@ -1,0 +1,16 @@
+services:
+  grafana_oss_8.5.x:
+    image: grafana/grafana-oss:8.5.0
+    container_name: grafana_oss_8.5.x
+    restart: always
+    volumes:
+      - ./conf/grafana.ini:/etc/grafana/grafana.ini
+      - service-grafana-data:/var/lib/grafana
+    ports:
+      - "${PORT}:3000"
+volumes:
+  service-grafana-data:
+networks:
+  default:
+    name: services_network
+    external: true
