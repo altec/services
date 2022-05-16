@@ -1,0 +1,19 @@
+services:
+  service_mariadb_10.4:
+    image: mariadb:10.4-focal
+    container_name: service_mariadb_10.4
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+    volumes:
+      - service-mariadb-data:/var/lib/mysql
+      - ./conf:/etc/mysql/conf.d
+      - ./init/:/docker-entrypoint-initdb.d/
+    ports:
+      - "${MARIADB_PORT}:3057"
+volumes:
+  service-mariadb-data:
+networks:
+  default:
+    name: services_network
+    external: true
